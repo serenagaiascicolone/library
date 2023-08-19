@@ -1,8 +1,31 @@
 import './App.css';
-import Mock from './mock/Mock'
+import MockHome from './mock/MockHome'
+import {RouterProvider, createBrowserRouter} from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './routes/Home'
+
+
 function App() {
+const router = createBrowserRouter ([
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />
+      },
+    
+    ]
+
+  }
+])
+
+
+
   return (
-    <Mock />
+    <RouterProvider router={router} />
+    // <MockHome />
   );
 }
 

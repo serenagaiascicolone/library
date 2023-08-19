@@ -1,17 +1,21 @@
 //header
 import {RxHamburgerMenu} from 'react-icons/rx'
+import {GiBookshelf} from 'react-icons/gi'
 // news-article
 import {BsArrowLeftCircle} from 'react-icons/bs'
 import {BsArrowRightCircle} from 'react-icons/bs'
-import {GiBookshelf} from 'react-icons/gi'
+// header e footer 
 import {AiFillGithub, AiFillLinkedin,AiOutlineTwitter, AiOutlineClose} from 'react-icons/ai'
 
 
 
-function Mock () {
+function MockHome () {
     return (
         <>
+        {/* app */}
         <div className='container'>
+            
+        {/* header */}
         <header>
          <h3> Books <GiBookshelf className='logo'/></h3>
         <RxHamburgerMenu className='hamburger'/> 
@@ -28,16 +32,23 @@ function Mock () {
     
             </nav>
         </header>
+        
+        {/* home */}
         <main>
+
             <section className='hero'>
                 <img src = { require("../img/hero-image.jpg")} alt="" />
                 <h1> La libreria di Serena </h1>
             </section>
+
+            {/* books */}
             <section className='news'>
                 <h3>News</h3>
                 <div className='news-container'>
                     <BsArrowLeftCircle className='arrow-left'/>
                     <BsArrowRightCircle className='arrow-right' />
+                   
+                   {/* book */}
                     <article className='news-article'>
                       
                         <img src={("https://via.placeholder.com/250x100")} alt="" />
@@ -47,6 +58,7 @@ function Mock () {
                         
                         <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint officiis in quos. Suscipit qui ipsam consequuntur ratione odit dolore obcaecati quam laborum. In magni voluptates eveniet repellat vel. At, ratione.</p>
                         </div>
+
                         <button> Continua  </button>
                     </article>
                
@@ -58,7 +70,7 @@ function Mock () {
         </div>
         
         
-        
+        {/* footer */}
         <footer>
             <p> © Serena Gaia Scicolone</p>
             <span className='social-bar'>
@@ -70,4 +82,4 @@ function Mock () {
     )
 }
 
-export default Mock
+export default MockHome
