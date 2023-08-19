@@ -142,10 +142,21 @@ nav {
   width: 100%;
   gap: 0.5rem;
   padding: 1rem;
+
+}
+
+.news-article img {
   border: 2px solid var(--dark-color);
   border-radius: 20px ;
-  background-color: white;
+}
 
+
+.news-article-text {
+ margin: 1rem;
+}
+
+.news-article-text p {
+ text-align: justify;
 }
 
 .news-article button {

@@ -40,10 +40,13 @@ function Mock () {
                     <BsArrowRightCircle className='arrow-right' />
                     <article className='news-article'>
                       
-                        <h4> Title</h4>
                         <img src={("https://via.placeholder.com/250x100")} alt="" />
+                        <div className='news-article-text'>
+
+                        <h4> Title</h4>
                         
                         <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint officiis in quos. Suscipit qui ipsam consequuntur ratione odit dolore obcaecati quam laborum. In magni voluptates eveniet repellat vel. At, ratione.</p>
+                        </div>
                         <button> Continua  </button>
                     </article>
                
