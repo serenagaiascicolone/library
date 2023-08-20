@@ -10,25 +10,16 @@ function Header () {
 const [isShow, setIsShow] = useState(false)
 
 
-
-function handleHamburgerClick () {
-    setIsShow(true)
-}
-
-function handleCloseButtonClick(){
-    setIsShow(false)
-}
-
     return (
         <header>
         <h3> Books <GiBookshelf className='logo'/></h3>
-       <RxHamburgerMenu className='hamburger' onClick={handleHamburgerClick}/> 
+       <RxHamburgerMenu className='hamburger' onClick={() => setIsShow(true)}/> 
            <nav className={isShow ? 'show': ''}>
             
-               <AiOutlineClose className='close-button' onClick={handleCloseButtonClick}/>
+               <AiOutlineClose className='close-button' onClick={() => setIsShow(false)}/>
 
-                <NavLink className={'nav-link'}> Home </NavLink>
-                <NavLink className={'nav-link'}> Libri </NavLink>
+                <NavLink  to='/' className={'nav-link'} onClick={() => setIsShow(false)}> Home </NavLink>
+                <NavLink to='/books' className={'nav-link'}> Libri </NavLink>
                 <NavLink className={'nav-link'}> Login </NavLink>
                 <NavLink className={'nav-link'}> Signup </NavLink>
                 <NavLink className={'nav-link'}> Aggiungi Libro </NavLink>
