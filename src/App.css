@@ -123,7 +123,7 @@ nav {
   /* padding-left: 2.5rem; */
 }
 
-.hero img, .login-container-img img {
+.hero img, .auth-container-img img {
   width: 7.5rem;
   height: 7.5rem;
   border-radius: 50%;
@@ -379,13 +379,13 @@ button:hover,
 }
 
 /******************************************LOGIN********************************************************/
-.login-container, .login-form {
+.auth-container, .auth-form {
   display: flex;
   flex-direction: column;
 }
 
 
-.login-container {
+.auth-container {
   width: 50%;
   gap: 1.5rem;
   margin: 5rem auto;
@@ -393,17 +393,26 @@ button:hover,
   /* justify-content: center; */
   align-items: center;
   /* height: 50vh; */
-  background-color: var(--light-secondary-color);
   border-top-left-radius: 50px;
   border-bottom-right-radius: 50px;
 }
 
-.login-form {
+.bg-login {
+  background-color: var(--light-secondary-color);
+}
+
+.auth-form {
   align-items: center;
   gap: 1.5rem;
 }
 
-.login-form input {
+.auth-form input {
   padding: 1rem;
   border-radius: 20px;
+}
+
+/******************************************LOGIN********************************************************/
+
+.bg-signup {
+  background-color: var(--primary-shade);
 }

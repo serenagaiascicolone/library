@@ -4,6 +4,8 @@ import MockNotFound from './mock/MockNotFound';
 import MockBooks from './mock/MockBooks';
 import MockBook from './mock/MockBook';
 import MockLogin from './mock/MockLogin';
+import MockSignup from './mock/MockSignup';
+import MockAddBook from './mock/MockAddBook';
 
 import './App.css';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
@@ -12,6 +14,9 @@ import Home from './routes/Home'
 import NotFound from './routes/NotFound';
 import Books from './routes/Books';
 import Book from './routes/Book';
+import Login from './routes/Login';
+import Signup from './routes/Signup';
+
 
 
 function App() {
@@ -26,7 +31,11 @@ const router = createBrowserRouter ([
       },
       {
         path: 'login',
-        element: <MockLogin />
+        element: <Login />
+      },
+      {
+        path: 'signup',
+        element: <Signup />
       },
       {
         path: '/books',
@@ -38,6 +47,10 @@ const router = createBrowserRouter ([
           {
             path: 'book',
             element: <Book />
+          },
+          {
+            path: 'add',
+            element: <MockAddBook />
           }
         ]
       }
