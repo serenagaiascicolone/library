@@ -94,9 +94,12 @@ nav {
   font-size: 1.5rem;
 }
 
-.nav-link {
+.link {
   text-decoration: none;
   color: black;
+}
+
+.nav-link {
   font-family: var(--general-font);
   font-weight: bolder;
   padding: 0.5rem;
@@ -219,7 +222,8 @@ footer {
   background-color: var(--secondary-color);
 }
 
-button:hover {
+
+button:hover, .link:hover {
   background-color: var(--dark-color);
   color: white;
 }
@@ -293,7 +297,7 @@ button:hover, .arrow-left:hover, .arrow-right:hover, .hamburger, .social-bar, .c
   width: calc((100% - 1rem)/2);
   /* padding: 1rem; */
   box-sizing: border-box;
-  background-color: var(--light-book);
+  background-color: white;
   flex-direction: column;
   /* gap: 1rem; */
 }

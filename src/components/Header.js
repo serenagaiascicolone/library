@@ -18,11 +18,11 @@ const [isShow, setIsShow] = useState(false)
             
                <AiOutlineClose className='close-button' onClick={() => setIsShow(false)}/>
 
-                <NavLink  to='/' className={'nav-link'} onClick={() => setIsShow(false)}> Home </NavLink>
-                <NavLink to='/books' className={'nav-link'}> Libri </NavLink>
-                <NavLink className={'nav-link'}> Login </NavLink>
-                <NavLink className={'nav-link'}> Signup </NavLink>
-                <NavLink className={'nav-link'}> Aggiungi Libro </NavLink>
+                <NavLink  to='/' className={'nav-link link'} onClick={() => setIsShow(false)}> Home </NavLink>
+                <NavLink to='/books' className={'nav-link link'}  onClick={() => setIsShow(false)}> Libri </NavLink>
+                <NavLink className={'nav-link link'}> Login </NavLink>
+                <NavLink className={'nav-link link'}> Signup </NavLink>
+                <NavLink className={'nav-link link'}> Aggiungi Libro </NavLink>
    
 {/*           
                <a href="http://">Home</a>

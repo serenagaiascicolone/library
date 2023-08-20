@@ -8,6 +8,8 @@ import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './routes/Home'
 import NotFound from './routes/NotFound';
+import Books from './routes/Books';
+
 
 function App() {
 const router = createBrowserRouter ([
@@ -24,7 +26,7 @@ const router = createBrowserRouter ([
         children: [
           {
             index: true,
-            element: <MockBooks />
+            element: <Books />
           }
         ]
       }

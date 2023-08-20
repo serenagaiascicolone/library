@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 function NotFound () {
     return (
         <div className="not-found-container">
@@ -8,7 +9,7 @@ function NotFound () {
             <p> Oops! </p>
             <p> 404 </p>
             <p> Page not found </p>
-            <button> Vai alla Home </button>
+            <button> <NavLink className={'link' } to={'/'}>Vai alla Home</NavLink>  </button>
             </section>
         </div>
     )

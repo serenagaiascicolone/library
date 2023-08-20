@@ -23,7 +23,7 @@ function Books (){
                     <h3>Title</h3>
                     <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque rerum animi magnam deserunt unde, ipsum odit molestias earum eius eveniet, vero sint similique, rem reprehenderit eum sunt nemo molestiae est?</p>
                 </div>
-                    <button>Scopri di più</button>
+                    <button >Scopri di più <BsArrowRightShort className='book-button-arrow'/></button>
             </article>
             <article className="book-container">
                 <img src={require("../img/book.png")} alt="" />
@@ -31,7 +31,7 @@ function Books (){
                     <h3>Title</h3>
                     <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque rerum animi magnam deserunt unde, ipsum odit molestias earum eius eveniet, vero sint similique, rem reprehenderit eum sunt nemo molestiae est?</p>
                 </div>
-                    <button>Scopri di più</button>
+                    <button >Scopri di più <BsArrowRightShort className='book-button-arrow'/></button>
             </article>
             <article className="book-container">
                 <img src={require("../img/book.png")} alt="" />
@@ -39,9 +39,8 @@ function Books (){
                     <h3>Title</h3>
                     <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque rerum animi magnam deserunt unde, ipsum odit molestias earum eius eveniet, vero sint similique, rem reprehenderit eum sunt nemo molestiae est?</p>
                 </div>
-                    <button>Scopri di più</button>
+                    <button >Scopri di più <BsArrowRightShort className='book-button-arrow'/></button>
             </article>
-         
           
         </section>
         </>
