@@ -123,7 +123,7 @@ nav {
   /* padding-left: 2.5rem; */
 }
 
-.hero img {
+.hero img, .login-container-img img {
   width: 7.5rem;
   height: 7.5rem;
   border-radius: 50%;
@@ -376,4 +376,34 @@ button:hover,
 
 .book-details-text p {
   text-align: justify;
+}
+
+/******************************************LOGIN********************************************************/
+.login-container, .login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.login-container {
+  width: 50%;
+  gap: 1.5rem;
+  margin: 5rem auto;
+  padding: 3rem;
+  /* justify-content: center; */
+  align-items: center;
+  /* height: 50vh; */
+  background-color: var(--light-secondary-color);
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.login-form {
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.login-form input {
+  padding: 1rem;
+  border-radius: 20px;
 }
