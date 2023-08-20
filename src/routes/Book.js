@@ -2,7 +2,7 @@ import {PiBooks} from "react-icons/pi"
 import {BiSolidHomeHeart} from "react-icons/bi"
 
 
-function MockBook (){
+function Book (){
     return(
         <>
         <section className="hero-book">
@@ -36,4 +36,4 @@ function MockBook (){
     )
 }
 
-export default MockBook 
+export default Book 

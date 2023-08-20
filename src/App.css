@@ -232,7 +232,13 @@ button:hover, .link:hover {
   background-color: var(--middle-color);
 }
 
-button:hover, .arrow-left:hover, .arrow-right:hover, .hamburger, .social-bar, .close-button {
+button:hover, 
+.arrow-left:hover, 
+.arrow-right:hover, 
+.hamburger, 
+.social-bar, 
+.close-button, 
+.back-item  {
   cursor: pointer;
 }
 
@@ -301,10 +307,9 @@ button:hover, .arrow-left:hover, .arrow-right:hover, .hamburger, .social-bar, .c
   flex-direction: column;
   /* gap: 1rem; */
 }
-.book-container img, .book-details-img img {
+.book-container img {
   max-width: 9rem;
   align-self: center;
-  padding: 1rem;
 }
 
 .book-container-text h3 {
@@ -329,12 +334,37 @@ button:hover, .arrow-left:hover, .arrow-right:hover, .hamburger, .social-bar, .c
 
 /******************************************BOOK********************************************************/
 
-.hero-book, .book-details, .book-details-text {
+.hero-book, 
+.book-details, 
+.book-details-text,
+.back-button {
   display: flex;
+}
+
+.back-button {
+  padding: 1rem;
+  align-items: center;
+}
+
+.back-item {
+  font-size: 1.5rem;
+  padding: 1rem;
 }
 
 .book-details {
   gap: 1rem;
+  padding: 1rem;
+  box-shadow: 3px 3px 3px 0 #795548;
+  width: 90%;
+}
+
+.book-details-img {
+  width: 40%;
+}
+
+.book-details-img img {
+  max-width: 100%;
+  padding-right: 1rem ;
 }
 
 .book-details-text  {

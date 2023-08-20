@@ -10,6 +10,7 @@ import Layout from './components/Layout'
 import Home from './routes/Home'
 import NotFound from './routes/NotFound';
 import Books from './routes/Books';
+import Book from './routes/Book';
 
 
 function App() {
@@ -31,7 +32,7 @@ const router = createBrowserRouter ([
           },
           {
             path: 'book',
-            element: <MockBook />
+            element: <Book />
           }
         ]
       }
