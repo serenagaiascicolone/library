@@ -22,7 +22,7 @@ const [isShow, setIsShow] = useState(false)
                 <NavLink to='/books' className={'nav-link link'}  onClick={() => setIsShow(false)}> Libri </NavLink>
                 <NavLink to= 'login' className={'nav-link link'} onClick={() => setIsShow(false)}> Login </NavLink>
                 <NavLink to= 'signup' className={'nav-link link'} onClick={() => setIsShow(false)}> Signup </NavLink>
-                <NavLink className={'nav-link link'} onClick={() => setIsShow(false)}> Aggiungi Libro </NavLink>
+                <NavLink to= '/books/add' className={'nav-link link'} onClick={() => setIsShow(false)}> Aggiungi Libro </NavLink>
 
    
            </nav>

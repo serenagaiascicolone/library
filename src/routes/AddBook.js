@@ -3,7 +3,7 @@ import {BiSolidHomeHeart} from "react-icons/bi"
 import {GrAddCircle} from "react-icons/gr"
 
 
-function MockBook (){
+function AddBook (){
     return(
         <>
         <section className="hero-book">
@@ -38,4 +38,4 @@ function MockBook (){
     )
 }
 
-export default MockBook 
+export default AddBook 

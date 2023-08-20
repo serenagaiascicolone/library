@@ -16,6 +16,7 @@ import Books from './routes/Books';
 import Book from './routes/Book';
 import Login from './routes/Login';
 import Signup from './routes/Signup';
+import AddBook from './routes/AddBook';
 
 
 
@@ -50,7 +51,7 @@ const router = createBrowserRouter ([
           },
           {
             path: 'add',
-            element: <MockAddBook />
+            element: <AddBook />
           }
         ]
       }

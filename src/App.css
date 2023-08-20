@@ -416,3 +416,41 @@ button:hover,
 .bg-signup {
   background-color: var(--primary-shade);
 }
+
+/******************************************ADD********************************************************/
+.add-img {
+  border: 2px solid black;
+  height: 173px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+.add-details-form input, .add-details-form textarea {
+  padding: 0.5rem;
+  border-radius: 20px;
+}
+
+.add-img-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  align-self: center;
+  margin-top: 3.5rem;;
+}
+
+.add-img-icon {
+  font-size: 2rem;
+  border-radius: 20px;
+}
+
+.add-img-icon:hover {
+  background-color: var(--primary-shade);
+  cursor: pointer;
+}
+
+.item {
+  font-size: 1.5rem;
+  font-family: var(--title--font);
+  padding: 1rem;
+}
