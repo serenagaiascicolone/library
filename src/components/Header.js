@@ -23,12 +23,7 @@ const [isShow, setIsShow] = useState(false)
                 <NavLink className={'nav-link link'}> Login </NavLink>
                 <NavLink className={'nav-link link'}> Signup </NavLink>
                 <NavLink className={'nav-link link'}> Aggiungi Libro </NavLink>
-   
-{/*           
-               <a href="http://">Home</a>
-               <a href="http://">Libri</a>
-               <a href="http://">Login</a>
-               <a href="http://">Signup</a> */}
+
    
            </nav>
        </header>

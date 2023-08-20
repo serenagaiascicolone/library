@@ -1,4 +1,5 @@
 import {BsArrowRightShort} from 'react-icons/bs'
+import { NavLink } from 'react-router-dom'
 
 
 function Books (){
@@ -15,7 +16,7 @@ function Books (){
                     <h3>Title</h3>
                     <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque rerum animi magnam deserunt unde, ipsum odit molestias earum eius eveniet, vero sint similique, rem reprehenderit eum sunt nemo molestiae est?</p>
                 </div>
-                    <button >Scopri di più <BsArrowRightShort className='book-button-arrow'/></button>
+                    <button ><NavLink className={'link'} to='book'>Scopri di più</NavLink><BsArrowRightShort className='book-button-arrow'/></button>
             </article>
             <article className="book-container">
                 <img src={require("../img/book.png")} alt="" />
@@ -23,7 +24,7 @@ function Books (){
                     <h3>Title</h3>
                     <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque rerum animi magnam deserunt unde, ipsum odit molestias earum eius eveniet, vero sint similique, rem reprehenderit eum sunt nemo molestiae est?</p>
                 </div>
-                    <button >Scopri di più <BsArrowRightShort className='book-button-arrow'/></button>
+                    <button > <NavLink className={'link'} to='book'>Scopri di più</NavLink> <BsArrowRightShort className='book-button-arrow'/></button>
             </article>
             <article className="book-container">
                 <img src={require("../img/book.png")} alt="" />

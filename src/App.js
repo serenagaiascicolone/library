@@ -2,6 +2,7 @@
 import MockHome from './mock/MockHome'
 import MockNotFound from './mock/MockNotFound';
 import MockBooks from './mock/MockBooks';
+import MockBook from './mock/MockBook';
 
 import './App.css';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
@@ -27,6 +28,10 @@ const router = createBrowserRouter ([
           {
             index: true,
             element: <Books />
+          },
+          {
+            path: 'book',
+            element: <MockBook />
           }
         ]
       }
