@@ -1,8 +1,8 @@
-import {PiBooks} from "react-icons/pi"
-import {BiSolidHomeHeart} from "react-icons/bi"
+
 import {GrAddCircle} from "react-icons/gr"
 import { useNavigate } from "react-router-dom"
 import Tab from "../components/Tab"
+import Hero from "../components/Hero"
 
 
 function AddBook (){
@@ -10,10 +10,8 @@ const navigate = useNavigate()
 
     return(
         <>
-        <section className="hero-book">
-        <img src={require("../img/add-book.png")} alt="" />
-        {/* <h1>Nuovo Libro</h1> */}
-    </section>
+        <Hero />
+      
         <Tab />
         <section className="book-details-container">
             <article className="book-details">

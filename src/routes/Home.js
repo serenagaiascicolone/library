@@ -1,14 +1,13 @@
 import {BsArrowLeftCircle} from 'react-icons/bs'
 import {BsArrowRightCircle} from 'react-icons/bs'
+import Hero from '../components/Hero'
 
 function Home () {
     return (
         <main>
 
-        <section className='hero'>
-            <img src = { require("../img/hero-image.jpg")} alt="" />
-            <h1> La libreria di Serena </h1>
-        </section>
+        <Hero />
+     
 
         {/* books */}
         <section className='news'>
