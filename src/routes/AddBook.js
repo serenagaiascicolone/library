@@ -24,7 +24,9 @@ const navigate = useNavigate()
                 </div>
 
                 <div className="book-details-text add-details-form">
-                    <h3>Title: </h3>
+                    <h3>Titolo: </h3>
+                    <input type="text" name="add-title" id="" />
+                    <h3>Autore: </h3>
                     <input type="text" name="add-title" id="" />
                     <p> Descrizione: </p>
                     <textarea name="add-description" id="" cols="30" rows="10"></textarea>

@@ -1,4 +1,6 @@
 import { AiOutlineClose} from 'react-icons/ai'
+import { Form } from 'react-router-dom'
+
 
 function Edit ({isModal, setIsModal}) {
     return (
@@ -7,16 +9,18 @@ function Edit ({isModal, setIsModal}) {
             <div className="modal-edit">
                 <AiOutlineClose className={'close-button'} onClick={() => setIsModal(false)}/>
                     <h1>Modifica</h1>    
-                        <form action="">
+                        <Form >
                             <label htmlFor="image"> Immagine </label>
                             <input type="file" name="image" id="" />
                             <label htmlFor="title"> Titolo </label>
                             <input type="text" name="title"/>
+                            <label htmlFor="title"> Autore </label>
+                            <input type="text" name="title"/>
                             <label htmlFor="image"> Descrizione </label>
                             <textarea name="description" id="" cols="30" rows="10"></textarea>
-                            <button>Annulla</button>
+                            <button onClick={() => setIsModal(false)}>Annulla</button>
                             <button> Modifica </button>
-                        </form>
+                        </Form>
             </div>
 
         </div>
