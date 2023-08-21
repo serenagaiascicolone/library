@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Edit from '../components/Edit'
+import Tab from '../components/Tab'
+
 
 function Books (){
 const navigate = useNavigate()
@@ -12,8 +14,8 @@ const [isModal, setIsModal] = useState(false)
         <>
         <section className="hero-books">
             <img src={require("../img/books.png")} alt="" />
-            <h1>I miei libri</h1>
         </section>
+        <Tab />
         <section className="books-list">
             <article className="book-container">
                 <img src={require("../img/book.png")} alt="" />

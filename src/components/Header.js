@@ -5,14 +5,16 @@ import { NavLink } from 'react-router-dom'
 
 // hooks
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom';
 
 function Header () {
 const [isShow, setIsShow] = useState(false)
-
+const location = useLocation()
+// console.log(location.pathname)
 
     return (
         <header>
-        <h3> Books <GiBookshelf className='logo'/></h3>
+        <h3> {location.pathname === '/' ? 'Books' : 'La libreria di Serena'} <GiBookshelf className='logo'/></h3>
        <RxHamburgerMenu className='hamburger' onClick={() => setIsShow(true)}/> 
            <nav className={isShow ? 'show': ''}>
             

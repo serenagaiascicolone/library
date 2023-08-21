@@ -1,6 +1,8 @@
 import {PiBooks} from "react-icons/pi"
 import {BiSolidHomeHeart} from "react-icons/bi"
 import { useNavigate } from "react-router-dom"
+import Tab from "../components/Tab"
+
 
 function Book (){
 const navigate = useNavigate()
@@ -11,12 +13,7 @@ const navigate = useNavigate()
         <section className="hero-book">
         <img src={require("../img/girl.png")} alt="" />
     </section>
-        <section className="back-button">
-            <BiSolidHomeHeart className="back-item" onClick={() => navigate('/')}/> |
-            <PiBooks className="back-item" onClick={() => navigate('/books')}/> |
-            <p className="item">Libro</p>
-       
-        </section>
+        <Tab />
         <section className="book-details-container">
             <article className="book-details">
                 <div className="book-details-img">
