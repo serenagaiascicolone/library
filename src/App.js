@@ -6,6 +6,7 @@ import MockBook from './mock/MockBook';
 import MockLogin from './mock/MockLogin';
 import MockSignup from './mock/MockSignup';
 import MockAddBook from './mock/MockAddBook';
+import MockEdit from './mock/MockEdit';
 
 import './App.css';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
@@ -43,7 +44,7 @@ const router = createBrowserRouter ([
         children: [
           {
             index: true,
-            element: <Books />
+            element: <Books />,
           },
           {
             path: 'book',
@@ -52,7 +53,7 @@ const router = createBrowserRouter ([
           {
             path: 'add',
             element: <AddBook />
-          }
+          },
         ]
       }
     ]},

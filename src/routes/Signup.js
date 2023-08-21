@@ -4,7 +4,7 @@ function Signup (){
         <div className="auth-container bg-signup">
         <h1>Registrati</h1>
         <section className="auth-container-img">
-            <img src={require("../img/hero-image.jpg")} alt="" />
+            <img src={require("../img/signup.jpg")} alt="" />
         </section>
         <section className="auth-container-form">
             <form className="auth-form" action="">

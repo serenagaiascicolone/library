@@ -1,9 +1,11 @@
 import {PiBooks} from "react-icons/pi"
 import {BiSolidHomeHeart} from "react-icons/bi"
 import {GrAddCircle} from "react-icons/gr"
-
+import { useNavigate } from "react-router-dom"
 
 function AddBook (){
+const navigate = useNavigate()
+
     return(
         <>
         <section className="hero-book">
@@ -11,8 +13,8 @@ function AddBook (){
         {/* <h1>Nuovo Libro</h1> */}
     </section>
         <section className="back-button">
-            <BiSolidHomeHeart className="back-item"/> |
-            <PiBooks className="back-item"/> |
+            <BiSolidHomeHeart className="back-item" onClick={() => navigate('/')}/> |
+            <PiBooks className="back-item" onClick={() => navigate('/books')}/> |
             <span className="item"> Aggiungi nuovo libro </span>
         </section>
         <section className="book-details-container">
