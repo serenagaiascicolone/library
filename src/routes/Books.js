@@ -1,35 +1,47 @@
 import {BsArrowRightShort} from 'react-icons/bs'
 
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useNavigate, useLoaderData, defer, Await } from 'react-router-dom'
+import { useState, Suspense } from 'react'
 import Edit from '../components/Edit'
 import Tab from '../components/Tab'
 import Hero from '../components/Hero'
+import Loader from '../components/Loader'
 
 
 function Books (){
 const navigate = useNavigate()
 const [isModal, setIsModal] = useState(false)
+const loadedBooks = useLoaderData()
 
     return (
         <>
         <Hero />
-       
         <Tab />
         <section className="books-list">
-            
-            <article className="book-container">
-                <img src={require("../img/book.png")} alt="" />
-                <div className="book-container-text">
-                    <h3>Title</h3>
-                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque rerum animi magnam deserunt unde, ipsum odit molestias earum eius eveniet, vero sint similique, rem reprehenderit eum sunt nemo molestiae est?</p>
-                </div>
-                    <button onClick={()=> navigate('book')}>Scopri di più<BsArrowRightShort className='book-button-arrow'/></button>
-                <div className='buttons-books-container'>
-                    <button onClick={() => setIsModal(true)}> Modifica </button>
-                    <button> Cancella </button>
-                </div>
-            </article>         
+        <Suspense fallback={<Loader />}> 
+            <Await resolve={loadedBooks.books}>
+                {loadedBooks => loadedBooks.books.map(book => {
+                    return (
+
+                        <article className="book-container">
+                            <img src={require("../img/book.png")} alt="" />
+                            <div className="book-container-text">
+                                <h3>{book.title}</h3>
+                                <h4>{book.author}</h4>
+                            </div>
+                                <button onClick={()=> navigate(`/books/${book.id}`)}>Scopri di più<BsArrowRightShort className='book-button-arrow'/></button>
+                            <div className='buttons-books-container'>
+                                <button onClick={() => setIsModal(true)}> Modifica </button>
+                                <button> Cancella </button>
+                            </div>
+                        </article>         
+
+                    )
+
+                })}
+            </Await>
+            </Suspense>
+
         
         </section>
         <Edit isModal = {isModal} setIsModal = {setIsModal}/>
@@ -39,8 +51,25 @@ const [isModal, setIsModal] = useState(false)
 
 
 // funzione per chiamare lista libri
-export async function load () {
 
+async function  getBooks () {
+    let res = await fetch('http://localhost:4000/api/books')
+    // if(!res.ok){
+    //     throw new Error('Fetch fail')
+    // }
+    
+    const resData = await res.json()
+    console.log(resData)
+    return resData 
+
+}
+
+export async function loader () {
+   return defer (
+        {
+            books: getBooks()
+        }
+    )
 }
 
 export default Books

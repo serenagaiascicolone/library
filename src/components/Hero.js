@@ -1,10 +1,10 @@
-import { useLocation } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 
 
 function Hero () {
     const location = useLocation()
     const page = location.pathname
-
+    const params = useParams()
 
     return (
         <section className={page === '/' ? 'hero' : 'hero-books'}>
@@ -22,7 +22,7 @@ function Hero () {
             <img src={require("../img/add-book.png")} alt="" />
         }
 
-            {page === '/books/book' && 
+            {page === `/books/${params.id}` && 
             <img src={require("../img/girl.png")} alt="" />
             }
         </section> 

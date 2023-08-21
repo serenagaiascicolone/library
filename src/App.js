@@ -13,8 +13,8 @@ import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './routes/Home'
 import NotFound from './routes/NotFound';
-import Books from './routes/Books';
-import Book from './routes/Book';
+import Books, { loader as BooksLoader } from './routes/Books';
+import Book, {loader as BookLoader} from './routes/Book';
 import Login from './routes/Login';
 import Signup from './routes/Signup';
 import AddBook from './routes/AddBook';
@@ -44,10 +44,12 @@ const router = createBrowserRouter ([
         children: [
           {
             index: true,
+            loader: BooksLoader,
             element: <Books />,
           },
           {
-            path: 'book',
+            path: ':id',
+            loader: BookLoader,
             element: <Book />
           },
           {
