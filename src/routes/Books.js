@@ -1,15 +1,12 @@
 import {BsArrowRightShort} from 'react-icons/bs'
 import { NavLink } from 'react-router-dom'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Edit from '../components/Edit'
 
 function Books (){
-
+const navigate = useNavigate()
 const [isModal, setIsModal] = useState(false)
-
-
-
 
     return (
         <>
@@ -24,7 +21,7 @@ const [isModal, setIsModal] = useState(false)
                     <h3>Title</h3>
                     <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque rerum animi magnam deserunt unde, ipsum odit molestias earum eius eveniet, vero sint similique, rem reprehenderit eum sunt nemo molestiae est?</p>
                 </div>
-                    <button ><NavLink className={'link'} to='book'>Scopri di più</NavLink><BsArrowRightShort className='book-button-arrow'/></button>
+                    <button onClick={()=> navigate('book')}>Scopri di più<BsArrowRightShort className='book-button-arrow'/></button>
                 <div className='buttons-books-container'>
                     <button onClick={() => setIsModal(true)}> Modifica </button>
                     <button> Cancella </button>
@@ -36,7 +33,11 @@ const [isModal, setIsModal] = useState(false)
                     <h3>Title</h3>
                     <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque rerum animi magnam deserunt unde, ipsum odit molestias earum eius eveniet, vero sint similique, rem reprehenderit eum sunt nemo molestiae est?</p>
                 </div>
-                    <button > <NavLink className={'link'} to='book'>Scopri di più</NavLink> <BsArrowRightShort className='book-button-arrow'/></button>
+                    <button onClick={()=> navigate('book')}>Scopri di più<BsArrowRightShort className='book-button-arrow'/></button>
+                <div className='buttons-books-container'>
+                    <button onClick={() => setIsModal(true)}> Modifica </button>
+                    <button> Cancella </button>
+                </div>
             </article>
             <article className="book-container">
                 <img src={require("../img/book.png")} alt="" />
@@ -44,7 +45,11 @@ const [isModal, setIsModal] = useState(false)
                     <h3>Title</h3>
                     <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque rerum animi magnam deserunt unde, ipsum odit molestias earum eius eveniet, vero sint similique, rem reprehenderit eum sunt nemo molestiae est?</p>
                 </div>
-                    <button >Scopri di più <BsArrowRightShort className='book-button-arrow'/></button>
+                    <button onClick={()=> navigate('book')}>Scopri di più<BsArrowRightShort className='book-button-arrow'/></button>
+                <div className='buttons-books-container'>
+                    <button onClick={() => setIsModal(true)}> Modifica </button>
+                    <button> Cancella </button>
+                </div>
             </article>
             <article className="book-container">
                 <img src={require("../img/book.png")} alt="" />
@@ -52,8 +57,13 @@ const [isModal, setIsModal] = useState(false)
                     <h3>Title</h3>
                     <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque rerum animi magnam deserunt unde, ipsum odit molestias earum eius eveniet, vero sint similique, rem reprehenderit eum sunt nemo molestiae est?</p>
                 </div>
-                    <button >Scopri di più <BsArrowRightShort className='book-button-arrow'/></button>
+                    <button onClick={()=> navigate('book')}>Scopri di più<BsArrowRightShort className='book-button-arrow'/></button>
+                <div className='buttons-books-container'>
+                    <button onClick={() => setIsModal(true)}> Modifica </button>
+                    <button> Cancella </button>
+                </div>
             </article>
+            
             
         </section>
         <Edit isModal = {isModal} setIsModal = {setIsModal}/>

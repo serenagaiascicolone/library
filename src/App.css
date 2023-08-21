@@ -74,8 +74,13 @@ header h3 {
 
 nav {
   display: none;
-  height: 100vh;
+  height: 380px;
   width: 100vw;
+  /* background-image: linear-gradient(
+    rgba(136, 191, 144, 0.8), 
+    rgba(136, 191, 144, 0.8)),
+  url(./img/bg-nav.jpg);
+  background-size: contain; */
   /* background-color: var(--secondary-color); */
   background-color:  var(--terziary-shade);
   z-index: 9999;
@@ -97,16 +102,15 @@ nav {
   font-size: 1.5rem;
 }
 
-.link {
-  text-decoration: none;
-  color: black;
-}
 
 .nav-link {
   font-family: var(--general-font);
   font-weight: bolder;
   padding: 0.5rem;
   border-radius: 20px;
+  text-decoration: none;
+  color: black;
+  text-transform: uppercase;
 }
 
 .hero, .hero-books, .hero-book {
@@ -151,7 +155,7 @@ nav {
   padding: 1rem;
   gap: 1rem;
   flex-wrap: wrap;
-  width: 80%;
+  width: 70%;
   margin: 1.5rem auto;
 }
 
@@ -167,6 +171,8 @@ nav {
 .news-article img {
   border: 2px solid var(--dark-color);
   border-radius: 20px ;
+  width: 90%;
+  margin: 0 auto;
 }
 
 

@@ -20,7 +20,7 @@ function Home () {
                {/* book */}
                 <article className='news-article'>
                   
-                    <img src={("https://via.placeholder.com/250x100")} alt="" />
+                    <img src={require("../img/news-image.jpg")} alt="" />
                     <div className='news-article-text'>
 
                     <h4> Title</h4>

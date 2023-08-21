@@ -1,5 +1,7 @@
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from "react-router-dom"
+
 function NotFound () {
+const navigate = useNavigate()
     return (
         <div className="not-found-container">
             <section className="not-found-img">
@@ -9,7 +11,7 @@ function NotFound () {
             <p> Oops! </p>
             <p> 404 </p>
             <p> Page not found </p>
-            <button> <NavLink className={'link' } to={'/'}>Vai alla Home</NavLink>  </button>
+            <button onClick={() => navigate('/')}> Vai alla Home </button>
             </section>
         </div>
     )
