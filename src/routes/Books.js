@@ -6,7 +6,7 @@ import Edit from '../components/Edit'
 import Tab from '../components/Tab'
 import Hero from '../components/Hero'
 import Loader from '../components/Loader'
-
+import DeleteButton from '../components/DeleteButton'
 
 function Books (){
 const navigate = useNavigate()
@@ -32,7 +32,7 @@ const loadedBooks = useLoaderData()
                                 <button onClick={()=> navigate(`/books/${book.id}`)}>Scopri di più<BsArrowRightShort className='book-button-arrow'/></button>
                             <div className='buttons-books-container'>
                                 <button onClick={() => setIsModal(true)}> Modifica </button>
-                                <button> Cancella </button>
+                                <DeleteButton id={book.id}/>
                             </div>
                         </article>         
 
