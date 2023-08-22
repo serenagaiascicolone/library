@@ -478,12 +478,7 @@ button:hover,
 }
 
 .modal-edit-wrapper {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99999;
-  background-color: var(--primary-transparent);
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -519,4 +514,16 @@ button:hover,
 /*classi attivate da react*/
 .show {
   display: flex;
+}
+
+/******************************************ERROR********************************************************/
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 0;
+  background-color: var(--middle-color);
 }

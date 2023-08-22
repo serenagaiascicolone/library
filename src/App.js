@@ -15,17 +15,22 @@ import Home from './routes/Home'
 import NotFound from './routes/NotFound';
 import Books, { loader as BooksLoader } from './routes/Books';
 import Book, {loader as BookLoader} from './routes/Book';
-import Login from './routes/Login';
+import Login, {action as LoginAction} from './routes/Login';
 import Signup from './routes/Signup';
-import AddBook from './routes/AddBook';
-
-
-
+import AddBook, {action as AddBookAction} from './routes/AddBook';
+import Edit, {action as EditBookAction} from './components/Edit';
+import Error from './components/Error'
+import {action as DeleteAction} from './components/DeleteButton';
+import  {action as LogoutAction} from './components/Logout';
+import { getUserToken as tokenLoader } from './utilities/authentication';
 function App() {
 const router = createBrowserRouter ([
   {
     path: '/',
+    id: 'rootLoader',
+    loader: tokenLoader,
     element: <Layout />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -33,7 +38,12 @@ const router = createBrowserRouter ([
       },
       {
         path: 'login',
+        action: LoginAction, 
         element: <Login />
+      },
+      {
+        path: 'logout',
+        action: LogoutAction, 
       },
       {
         path: 'signup',
@@ -54,7 +64,17 @@ const router = createBrowserRouter ([
           },
           {
             path: 'add',
+            action: AddBookAction,
             element: <AddBook />
+          },
+          {
+            path: 'edit/:id',
+            action: EditBookAction,
+            element: <Edit />
+          },
+          {
+            path: 'delete',
+            action: DeleteAction,
           },
         ]
       }

@@ -1,6 +1,6 @@
 import {BsArrowRightShort} from 'react-icons/bs'
 
-import { useNavigate, useLoaderData, defer, Await } from 'react-router-dom'
+import { useNavigate, useLoaderData, defer, Await, Outlet, useRouteLoaderData } from 'react-router-dom'
 import { useState, Suspense } from 'react'
 import Edit from '../components/Edit'
 import Tab from '../components/Tab'
@@ -10,8 +10,10 @@ import DeleteButton from '../components/DeleteButton'
 
 function Books (){
 const navigate = useNavigate()
-const [isModal, setIsModal] = useState(false)
 const loadedBooks = useLoaderData()
+const token = useRouteLoaderData('rootLoader')
+
+
 
     return (
         <>
@@ -30,10 +32,19 @@ const loadedBooks = useLoaderData()
                                 <h4>{book.author}</h4>
                             </div>
                                 <button onClick={()=> navigate(`/books/${book.id}`)}>Scopri di più<BsArrowRightShort className='book-button-arrow'/></button>
+                           
+                           
+                           {token && (
+
                             <div className='buttons-books-container'>
-                                <button onClick={() => setIsModal(true)}> Modifica </button>
+                                {/* <button onClick={() => setIsModal(true)}> Modifica </button> */}
+
+                                <button onClick={() =>navigate(`edit/${book.id}`)}> Modifica </button>
+                                {/* <button onClick={() => navigate(`edit/${book.id}`)}> Modifica </button> */}
                                 <DeleteButton id={book.id}/>
                             </div>
+
+                           )}
                         </article>         
 
                     )
@@ -42,9 +53,7 @@ const loadedBooks = useLoaderData()
             </Await>
             </Suspense>
 
-        
         </section>
-        <Edit isModal = {isModal} setIsModal = {setIsModal}/>
         </>
     )
 }
@@ -54,12 +63,11 @@ const loadedBooks = useLoaderData()
 
 async function  getBooks () {
     let res = await fetch('http://localhost:4000/api/books')
-    // if(!res.ok){
-    //     throw new Error('Fetch fail')
-    // }
+    if(!res.ok){
+        throw new Error('Fetch fail')
+    }
     
     const resData = await res.json()
-    console.log(resData)
     return resData 
 
 }

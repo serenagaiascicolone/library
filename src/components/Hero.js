@@ -6,6 +6,7 @@ function Hero () {
     const page = location.pathname
     const params = useParams()
 
+
     return (
         <section className={page === '/' ? 'hero' : 'hero-books'}>
             
