@@ -1,3 +1,5 @@
+// TODO aggiornare home con: slide ultimi libri letti, about-me, input: search
+
 import {BsArrowLeftCircle} from 'react-icons/bs'
 import {BsArrowRightCircle} from 'react-icons/bs'
 import Hero from '../components/Hero'

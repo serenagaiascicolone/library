@@ -49,7 +49,6 @@ export async function action ({request}, page) {
     }
     
     if(page === '/login') {
-        console.log(page)
         
         const response = await fetch('http://localhost:4000/api/login', {
             method: 'POST',

@@ -10,7 +10,7 @@ function Book (){
 const navigate = useNavigate()
 const loadedBook = useLoaderData()
 const id = useParams()
-console.log(id)
+
 
     return(
 
@@ -32,7 +32,7 @@ console.log(id)
                                         <h3>{loadedBook.book.title}</h3>
                                         <h4>{loadedBook.book.author}</h4>
                                         <p> {loadedBook.book.description}</p>
-                                    <NavLink to=''> Acquista </NavLink>
+                                    {/* <NavLink to=''> Acquista </NavLink> */}
                                     </div>
                                 </article>
 
@@ -49,7 +49,7 @@ console.log(id)
 }
 
 async function  getBook ({id}) {
-    console.log(id)
+
     let res = await fetch(`http://localhost:4000/api/books/${id}`)
     // if(!res.ok){
         //     throw new Error('Fetch fail')

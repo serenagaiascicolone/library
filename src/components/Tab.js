@@ -9,6 +9,7 @@ function Tab () {
     const page = location.pathname
     const params = useParams()
 
+    // inserire dinamicamento titolo tab nella rotta Book 
     const books = useRouteLoaderData('rootBooks')
     const findBook = books.books.filter(book => book.id.includes(params.id))
     // const titleBookDetails = findBook[0].title
