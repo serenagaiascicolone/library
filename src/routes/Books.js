@@ -1,3 +1,5 @@
+// TODO FAR FUNZIONARE MODALE (IN APP.JS COME LAYOUT CON OUTLET)
+
 import {BsArrowRightShort} from 'react-icons/bs'
 
 import { useNavigate, useLoaderData, defer, Await, Outlet, useRouteLoaderData } from 'react-router-dom'
