@@ -13,7 +13,7 @@ import {RouterProvider, createBrowserRouter} from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './routes/Home'
 import NotFound from './routes/NotFound';
-import Books, { loader as BooksLoader } from './routes/Books';
+import Books, { loader as BooksLoader, getBooks as getBooksLoader } from './routes/Books';
 import Book, {loader as BookLoader} from './routes/Book';
 import Login, {action as AuthAction} from './routes/Login';
 import Signup from './routes/Signup';
@@ -24,6 +24,7 @@ import {action as DeleteAction} from './components/DeleteButton';
 import  {action as LogoutAction} from './components/Logout';
 import { getUserToken as tokenLoader } from './utilities/authentication';
 import Authentication from './routes/Authentication';
+import { render } from '@testing-library/react';
 
 
 
@@ -56,11 +57,14 @@ const router = createBrowserRouter ([
       },
       {
         path: '/books',
+        id: 'rootBooks',
+        loader: getBooksLoader,
         children: [
           {
             index: true,
             loader: BooksLoader,
             element: <Books />,
+            
           },
           {
             path: ':id',
@@ -75,7 +79,7 @@ const router = createBrowserRouter ([
           {
             path: 'edit/:id',
             action: EditBookAction,
-            element: <Edit />
+            element: <Edit/>
           },
           {
             path: 'delete',

@@ -9,6 +9,8 @@ import Tab from '../components/Tab'
 import Hero from '../components/Hero'
 import Loader from '../components/Loader'
 import DeleteButton from '../components/DeleteButton'
+import { NavLink } from 'react-router-dom';
+import { useOutletContext } from 'react-router-dom';
 
 function Books (){
 const navigate = useNavigate()
@@ -41,6 +43,7 @@ const token = useRouteLoaderData('rootLoader')
                             <div className='buttons-books-container'>
                                 {/* <button onClick={() => setIsModal(true)}> Modifica </button> */}
 
+                              
                                 <button onClick={() =>navigate(`edit/${book.id}`)}> Modifica </button>
                                 {/* <button onClick={() => navigate(`edit/${book.id}`)}> Modifica </button> */}
                                 <DeleteButton id={book.id}/>
@@ -54,7 +57,7 @@ const token = useRouteLoaderData('rootLoader')
                 })}
             </Await>
             </Suspense>
-
+           
         </section>
         </>
     )
@@ -63,13 +66,14 @@ const token = useRouteLoaderData('rootLoader')
 
 // funzione per chiamare lista libri
 
-async function  getBooks () {
+ export async function  getBooks () {
     let res = await fetch('http://localhost:4000/api/books')
     if(!res.ok){
         throw new Error('Fetch fail')
     }
     
     const resData = await res.json()
+    // console.log(resData.books.map(book=> book.title))
     return resData 
 
 }

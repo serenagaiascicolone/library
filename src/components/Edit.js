@@ -1,9 +1,16 @@
 import { AiOutlineClose} from 'react-icons/ai'
-import { Form, redirect } from 'react-router-dom'
+import { Form, redirect, useRouteLoaderData } from 'react-router-dom'
 import { useParams, useNavigate } from 'react-router-dom';
-import { useOutletContext } from 'react-router-dom';
+
 import { getUserToken } from '../utilities/authentication';
+
 function Edit () {
+const books = useRouteLoaderData('rootBooks')
+
+const params = useParams()
+const findBook = books.books.filter(book => book.id.includes(params.id))
+
+
  const navigate = useNavigate()
     return (
         <>
@@ -15,11 +22,11 @@ function Edit () {
                             <label htmlFor="image"> Immagine </label>
                             <input type="file" name="image" id="" />
                             <label htmlFor="title"> Titolo </label>
-                            <input type="text" name="title"/>
-                            <label htmlFor="author"> Autore </label>
-                            <input type="text" name="author"/>
+                            <input type="text" name="title" defaultValue={findBook[0].title}/>
+                            <label htmlFor="author"  defaultValue={findBook[0].author}> Autore </label>
+                            <input type="text" name="author" defaultValue={findBook[0].author}/>
                             <label htmlFor="description"> Descrizione </label>
-                            <textarea name="description" id="" cols="30" rows="10"></textarea>
+                            <textarea name="description" id="" cols="30" rows="10"  defaultValue={findBook[0].description}></textarea>
                             <button onClick={() => navigate('/books')}>Annulla</button>
                             <button> Modifica </button>
                         </Form>
