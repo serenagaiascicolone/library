@@ -12,8 +12,8 @@ function Hero () {
             
             {page === '/' && 
             <>
-            <img src={require("../img/hero-image.jpg")} alt="" />
-            <h1> La libreria di Serena </h1>
+            {/* <img src={require("../img/hero-image.jpg")} alt="" /> */}
+            <h1> La libreria </h1>
             </>
         }
             {page === '/books' && 

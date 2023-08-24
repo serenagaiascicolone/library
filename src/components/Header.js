@@ -26,7 +26,7 @@ function handleLogout (){
     return (
 
         <header>
-        <h3> {location.pathname === '/' ? 'Books' : 'La libreria di Serena'} <GiBookshelf className='logo'/></h3>
+        <h3> {location.pathname === '/' ? 'Books' : 'La libreria'} <GiBookshelf className='logo'/></h3>
        <RxHamburgerMenu className='hamburger' onClick={() => setIsShow(true)}/> 
            <nav className={isShow ? 'show': ''}>
             

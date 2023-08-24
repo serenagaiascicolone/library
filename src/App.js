@@ -39,6 +39,7 @@ const router = createBrowserRouter ([
     children: [
       {
         index: true,
+        loader: BooksLoader,
         element: <Home />
       },
       {
