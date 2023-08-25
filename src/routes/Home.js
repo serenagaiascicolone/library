@@ -1,11 +1,14 @@
-// TODO aggiornare home con: slide ultimi libri letti, about-me, input: search
+
 
 import { useLoaderData } from 'react-router-dom'
 
-import {BiSearchAlt} from 'react-icons/bi'
+
 import Hero from '../components/Hero'
 
 import Slideshow from './../components/Slideshow';
+import Search from '../components/Search';
+
+
 function Home () {
     const loadedBooks = useLoaderData()
  
@@ -46,14 +49,7 @@ function Home () {
         <Slideshow loadedBooks={loadedBooks} />
     
 
-        <section className='home'>
-            <h3>Cerca nella mia libreria</h3>
-            <div className='home-container search'>
-             
-            <input type="search" name="" id="" placeholder='cerca libro'/>  
-            <BiSearchAlt className='search-icon'/>
-            </div>
-        </section>
+        <Search loadedBooks={loadedBooks}/>
    
     </main>
     )

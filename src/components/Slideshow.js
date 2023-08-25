@@ -1,13 +1,14 @@
 import {BsArrowLeftCircle} from 'react-icons/bs'
 import {BsArrowRightCircle} from 'react-icons/bs'
-import { Await } from 'react-router-dom'
+import { Await , useNavigate} from 'react-router-dom'
 import BooksList from './BooksList'
 import { Suspense, useEffect, useState, useRef } from 'react'
 
 import Loader from './Loader'
 
-function Slideshow ({loadedBooks}) {
 
+function Slideshow ({loadedBooks}) {
+const navigate = useNavigate()
 
 /*SLIDESHOW */
     let [slide, setSlide] = useState(0)
@@ -59,7 +60,7 @@ function Slideshow ({loadedBooks}) {
                                 <>
                                 <BsArrowLeftCircle className='arrow-left' onClick={previous}/>
                                 <BsArrowRightCircle className='arrow-right' onClick={next}/>
-                                        <article className="book-container">
+                                        <article onClick={()=> navigate(`/books/${lastbooks[slide].id}`)}className="book-container">
                                             <img src={require("../img/book.png")} alt="" />
                                         <div className="book-container-text">
                                             <h3>{lastbooks[slide].title}</h3>

@@ -10,7 +10,7 @@ import BooksList from '../components/BooksList'
 function Books (){
 const navigate = useNavigate()
 const loadedBooks = useLoaderData()
-console.log(loadedBooks)
+
 const token = useRouteLoaderData('rootLoader')
 
 
