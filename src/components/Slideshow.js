@@ -44,7 +44,7 @@ const navigate = useNavigate()
 //    console.log(slide) 1 2 0 
   
     return (
-        <section className='home'>
+        <section className='home slideshow-container'>
       
         <h3>Ultimi libri letti</h3>
         <div className='home-container slideshow'>
