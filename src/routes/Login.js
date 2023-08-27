@@ -52,7 +52,9 @@ export async function action ({request}) {
 
     const responseData = await response.json()
     localStorage.setItem('userToken', responseData.token)
-
+    let hourInMillis = 1000 * 60 * 60;
+    let tokenExpirationMillis = new Date().getTime() + hourInMillis;
+    localStorage.setItem('expirationMillis', tokenExpirationMillis);
     return redirect('/books')
 }
 

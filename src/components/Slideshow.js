@@ -105,7 +105,7 @@ const navigate = useNavigate()
                         {/* solo i primi tre libri */}
 
                     {loadedBooks => loadedBooks.books.slice(0,`${lastBookslength}`).map((book,i) => {
-                        console.log(book,i)
+            
                    
 
 

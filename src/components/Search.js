@@ -2,6 +2,7 @@ import {BiSearchAlt} from 'react-icons/bi'
 import { useRef, Suspense, useState } from 'react'
 import Loader from './Loader'
 import { Await, NavLink } from 'react-router-dom'
+import Tab from './Tab';
 
 
 
@@ -47,28 +48,31 @@ function handleKeyDown (e){
     {loadedBooks => {
         const books = loadedBooks.books
         const selectedBook = books.map(book => book).filter(book => book.title.toLowerCase().includes(searchInput.toLowerCase()))
-        console.log(selectedBook)
-
-       try {
-
-           return (
-    
-        
-               
-               <NavLink className='selected-book' to={`/books/${selectedBook[0].id}`}>{searchInput ? `${selectedBook[0].title}` : ''}</NavLink>
-    
        
-    
-           
-           )
+       
+        
 
-       } catch(error){
-          return (
-            <p className='selected-book'>Nessun risultato</p>
-          ) 
-
-       }
-           
+      
+        
+        try {
+            
+            return (
+                
+                                <div className={searchInput ? 'selected-book-container' : ''}>
+                                    <NavLink className='selected-book' to={`/books/${selectedBook[0].id}`}>{searchInput ? `${selectedBook[0].title}` : ''} </NavLink>
+                                </div>            
+                                )
+                    
+                    } catch(error){
+                        return (
+                            <div className='selected-book-container'>
+                            <p className='selected-book'>Nessun risultato</p>
+                            </div>
+                    ) 
+                    
+                }
+                
+               
     
         
     }}
