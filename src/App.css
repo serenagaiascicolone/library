@@ -409,6 +409,10 @@ button:hover, .link:hover, .search-icon:hover {
   background-color: var(--middle-color);
 }
 
+.active {
+  background-color: var(--middle-color);
+}
+
 button:hover, 
 .arrow-left:hover, 
 .arrow-right:hover, 

@@ -31,13 +31,32 @@ function handleLogout (){
            <nav className={isShow ? 'show': ''}>
             
                <AiOutlineClose className='close-button' onClick={() => setIsShow(false)}/>
-                <NavLink  to='/' className={'nav-link link'} onClick={() => setIsShow(false)}> Home </NavLink>
-                <NavLink to='/books' className={'nav-link link'}  onClick={() => setIsShow(false)}> Libri </NavLink>
+                <NavLink  to='/' 
+                     className={ ({ isActive }) => isActive ? 'nav-link link active' : 'nav-link link' } 
+                onClick={() => setIsShow(false)}
+                end> Home </NavLink>
+               
+               
+                <NavLink 
+                to='/books' 
+                className={ ({ isActive }) => isActive ? 'nav-link link active' : 'nav-link link' } 
+                onClick={() => setIsShow(false)}
+                end> Libri </NavLink>
 
             {token && (
                 <>
-                <NavLink to= '/' className={'nav-link link'} onClick={handleLogout}> Logout </NavLink>
-                <NavLink to= '/books/add' className={'nav-link link'} onClick={() => setIsShow(false)}> Aggiungi Libro </NavLink>
+
+                <NavLink 
+                to= '/' 
+                 className={ ({ isActive }) => isActive ? 'nav-link link active' : 'nav-link link' } 
+                onClick={handleLogout}
+                end> Logout </NavLink>
+               
+                <NavLink 
+                to= '/books/add' 
+                className={ ({ isActive }) => isActive ? 'nav-link link active' : 'nav-link link' } 
+                onClick={() => setIsShow(false)}
+                end> Aggiungi Libro </NavLink>
                 </>
                 
             )}
@@ -46,9 +65,19 @@ function handleLogout (){
 
                 <>
                 
-                <NavLink to= 'login' className={'nav-link link'} onClick={() => setIsShow(false)}> Login </NavLink>
-                {/* <NavLink to= 'logout' className={'nav-link link'} onClick={() => setIsShow(false)}> Logout </NavLink> */}
-                <NavLink to= 'signup' className={'nav-link link'} onClick={() => setIsShow(false)}> Signup </NavLink>
+                <NavLink 
+                to= 'login' 
+                className={ ({ isActive }) => isActive ? 'nav-link link active' : 'nav-link link' } 
+                onClick={() => setIsShow(false)}
+                end> Login </NavLink>
+               
+             
+               
+                <NavLink 
+                to= 'signup' 
+                className={ ({ isActive }) => isActive ? 'nav-link link active' : 'nav-link link' } 
+                onClick={() => setIsShow(false)}
+                end> Signup </NavLink>
                 </>
             )}
 
