@@ -53,28 +53,56 @@ const navigate = useNavigate()
                 <Suspense fallback={<Loader />}> 
                     <Await resolve={loadedBooks.books}>
 
+                        {/* {loadedBooks => {
+                            const lastbooks = loadedBooks.books.slice(0,3)
+                                return (
+                                    <>
+                                    <BsArrowLeftCircle className='arrow-left' onClick={previous}/>
+                                    <BsArrowRightCircle className='arrow-right' onClick={next}/>
+                                            <article onClick={()=> navigate(`/books/${lastbooks[slide].id}`)}className="book-container">
+                                                <img src={require("../img/book.png")} alt="" />
+                                            <div className="book-container-text">
+                                                <h3>{lastbooks[slide].title}</h3>
+                                                <h4>{lastbooks[slide].author}</h4>
+                                            </div>
+                                            </article>  
+                                    </>
+                                     )
+                                     
+                                
+                            }} */}
+                                
+            
+                           
                         {loadedBooks => {
                             const lastbooks = loadedBooks.books.slice(0,3)
-                           
-                            return (
-                                <>
-                                <BsArrowLeftCircle className='arrow-left' onClick={previous}/>
-                                <BsArrowRightCircle className='arrow-right' onClick={next}/>
-                                        <article onClick={()=> navigate(`/books/${lastbooks[slide].id}`)}className="book-container">
-                                            <img src={require("../img/book.png")} alt="" />
-                                        <div className="book-container-text">
-                                            <h3>{lastbooks[slide].title}</h3>
-                                            <h4>{lastbooks[slide].author}</h4>
-                                        </div>
-                                        </article>  
-                                </>
-                                 )
-                        }}
+                            lastbooks.map(book => {
+                                    console.log(book)
+                                    return (
+                                        <>
+                                                <article onClick={()=> navigate(`/books/${book.id}`)}className="book-container">
+                                                    <img src={require("../img/book.png")} alt="" />
+                                                <div className="book-container-text">
+                                                    <h3>{book.title}</h3>
+                                                    <h4>{book.author}</h4>
+                                                </div>
+                                                </article>  
+                                        </>
+                                         )
+
+
+                                })
+                                     
+                                
+                            }}
 
             
                     </Await>
                     </Suspense>
             </div>
+
+       
+            
         </div>
     </section>
     )
