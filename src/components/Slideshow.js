@@ -14,7 +14,7 @@ const navigate = useNavigate()
     let [slide, setSlide] = useState(0)
     // console.log(slide)
     const lastBookslength = 3;
-
+ 
     function next (){
         if(slide === 2){
             setSlide(0)
@@ -41,19 +41,33 @@ const navigate = useNavigate()
     return () => clearInterval(interval)
    },[])
   
-//    console.log(slide) 1 2 0 
+
+
+   /* MEDIA QUERIES */
+   const [matches, setMatches] = useState(window.matchMedia("(min-width: 768px)"))
+   useEffect(() => {
+    window
+    .matchMedia("(min-width: 768px)")
+    .addEventListener('change', e => setMatches(e.matches))
+   })
   
+
+   
     return (
         <section className='home slideshow-container'>
       
         <h3>Ultimi libri letti</h3>
         <div className='home-container slideshow'>
            
-        <div className='slideshowSlider'>
+        
+        
+        
+        {!matches && (
+       <div className='slideshowSlider'>
                 <Suspense fallback={<Loader />}> 
                     <Await resolve={loadedBooks.books}>
 
-                        {/* {loadedBooks => {
+                        {loadedBooks => {
                             const lastbooks = loadedBooks.books.slice(0,3)
                                 return (
                                     <>
@@ -67,42 +81,61 @@ const navigate = useNavigate()
                                             </div>
                                             </article>  
                                     </>
-                                     )
-                                     
-                                
-                            }} */}
-                                
-            
-                           
-                        {loadedBooks => {
-                            const lastbooks = loadedBooks.books.slice(0,3)
-                            lastbooks.map(book => {
-                                    console.log(book)
-                                    return (
-                                        <>
-                                                <article onClick={()=> navigate(`/books/${book.id}`)}className="book-container">
-                                                    <img src={require("../img/book.png")} alt="" />
-                                                <div className="book-container-text">
-                                                    <h3>{book.title}</h3>
-                                                    <h4>{book.author}</h4>
-                                                </div>
-                                                </article>  
-                                        </>
-                                         )
-
-
-                                })
-                                     
-                                
+                                     )                 
                             }}
-
-            
-                    </Await>
+                        </Await>
                     </Suspense>
             </div>
 
-       
+
+        )}
+
+
+        {matches && (
+        <>
+        
+         <BsArrowLeftCircle className='arrow-left' onClick={previous}/>
+            <BsArrowRightCircle className='arrow-right' onClick={next} />
+        
+        
+        <div className='slideshowSlider'>
+            <Suspense fallback={<Loader />}> 
+                  <Await resolve={loadedBooks.books}>
+
+                        {/* solo i primi tre libri */}
+
+                    {loadedBooks => loadedBooks.books.slice(0,`${lastBookslength}`).map((book,i) => {
+                        console.log(book,i)
+                   
+
+
+                           return (
+                             <article id={i} onClick={()=> navigate(`/books/${book.id}`)} className={`book-container ${slide === i ? 'slideSelected' : 'slideUnSelected'}`}>
+                                <img src={require("../img/book.png")} alt="" />
+                                     <div className="book-container-text">
+                                       <h3>{book.title}</h3>
+                                    <h4>{book.author}</h4>
+                                    </div>
+                               </article>         
+                        )
+
+                           
+                            
+                       })}
+                  </Await>
+                     </Suspense>
+            </div>
             
+        
+        
+        </>
+
+
+
+        )}
+
+
+
         </div>
     </section>
     )
