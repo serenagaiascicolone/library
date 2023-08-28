@@ -1,4 +1,4 @@
-import { Form, redirect, useNavigation, useLocation } from "react-router-dom"
+import { Form, redirect, useNavigation, useLocation, useActionData } from "react-router-dom"
 
 
 function Authentication (){
@@ -6,7 +6,8 @@ function Authentication (){
     const isSubmitting = navigation.state !== 'idle'
     const location = useLocation()
     const page = location.pathname
-    
+    const serverResponseData = useActionData()
+    console.log(serverResponseData)
     
     return (
         <div className={page === '/login' ? "auth-container bg-login" : "auth-container bg-signup"}>
@@ -26,6 +27,21 @@ function Authentication (){
                 <input type="email" name="email" placeholder="inserisci qui la tua email"/>
                 <label htmlFor=""> Password </label>
                 <input type="password" name="password" placeholder="inserisci qui la tua password"/>
+             
+                {serverResponseData && serverResponseData.message &&
+                    <>
+                    <h1> {serverResponseData.message}</h1>
+                    
+                     {page === '/signup' &&
+                     
+                     <p>{serverResponseData.errors.email}</p>
+                     }   
+                    </>
+                   
+                }
+
+
+
                 {page === '/login'  ? 
 
                     <button disabled={isSubmitting}>{isSubmitting ? 'Login in corso' : 'Accedi'}</button>
@@ -41,6 +57,7 @@ function Authentication (){
 }
 
 export async function action ({request}, page) {
+    console.log(page)
     
     const data = await request.formData()
     const userData = {
@@ -48,8 +65,7 @@ export async function action ({request}, page) {
         password: data.get('password'),
     }
     
-    if(page === '/login') {
-        
+    if(page === 'login') {
         const response = await fetch('http://localhost:4000/api/login', {
             method: 'POST',
             body: JSON.stringify(userData),
@@ -61,15 +77,24 @@ export async function action ({request}, page) {
             
         })
         
+        if(response.status === 401){
+            return response 
+        }
+
+
         if(!response.ok){
             throw new Error(response.statusText)
         }
     
         const responseData = await response.json()
         localStorage.setItem('userToken', responseData.token)
+        let hourInMillis = 1000 * 60 * 60;
+        let tokenExpirationMillis = new Date().getTime() + hourInMillis;
+        localStorage.setItem('expirationMillis', tokenExpirationMillis);
+   
     }
 
-    if(page === '/signup') {
+    if(page === 'signup') {
         
         const response = await fetch('http://localhost:4000/api/signup', {
             method: 'POST',
@@ -82,12 +107,20 @@ export async function action ({request}, page) {
             
         })
 
+        if(response.status === 422){
+            return response 
+        }
+
         if(!response.ok){
             throw new Error(response.statusText)
         }
     
         const responseData = await response.json()
         localStorage.setItem('userToken', responseData.token)
+        let hourInMillis = 1000 * 60 * 60;
+        let tokenExpirationMillis = new Date().getTime() + hourInMillis;
+        localStorage.setItem('expirationMillis', tokenExpirationMillis);
+
     }
 
 

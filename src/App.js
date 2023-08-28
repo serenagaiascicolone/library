@@ -15,8 +15,7 @@ import Home from './routes/Home'
 import NotFound from './routes/NotFound';
 import Books, { loader as BooksLoader, getBooks as getBooksLoader } from './routes/Books';
 import Book, {loader as BookLoader} from './routes/Book';
-import Login, {action as AuthAction} from './routes/Login';
-import Signup from './routes/Signup';
+import {action as LoginAction} from './components/Login';
 import AddBook, {action as AddBookAction} from './routes/AddBook';
 import Edit, {action as EditBookAction} from './components/Edit';
 import Error from './components/Error'
@@ -24,7 +23,7 @@ import {action as DeleteAction} from './components/DeleteButton';
 import  {action as LogoutAction} from './components/Logout';
 import { getUserToken as tokenLoader } from './utilities/authentication';
 import Authentication from './routes/Authentication';
-import { render } from '@testing-library/react';
+import {action as SignupAction} from './components/Signup'
 
 
 
@@ -44,7 +43,7 @@ const router = createBrowserRouter ([
       },
       {
         path: 'login',
-        action: AuthAction, 
+        action: LoginAction, 
         element: <Authentication />,
       },
       {
@@ -53,7 +52,7 @@ const router = createBrowserRouter ([
       },
       {
         path: 'signup',
-        action: AuthAction,
+        action: SignupAction,
         element: < Authentication />,
       },
       {
