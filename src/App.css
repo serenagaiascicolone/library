@@ -522,6 +522,32 @@ button:hover,
   width: 60%;
 }
 
+/*PROGRESSIVE BAR*/
+.progressive-bar-container {
+  background-image: 
+ 
+  url(./img/progressivebar-img.svg);
+  background-repeat: repeat-x;
+  display: inline-block;
+  overflow: hidden;
+  width: 68px;
+ position: relative;
+}
+
+.progressive-bar-container, .progressive-bar {
+  background-size: 14px 11.4px;
+  height: 11.4px;
+}
+
+.progressive-bar {
+  background-image: url(./img/bar-progressive-img-yellow.svg);
+  background-repeat: repeat-x;
+  display: block;
+  /* width: 50px; */
+  /*TODO: 1-68px*/
+}
+
+
 /******************************************BOOK********************************************************/
 
 .hero-book, 
@@ -656,8 +682,9 @@ button:hover,
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
   width: 100%;
+  margin: 2rem 0;
 }
 
 .modal-edit {

@@ -4,6 +4,7 @@ import Tab from "../components/Tab"
 import Hero from "../components/Hero"
 import { Suspense } from "react"
 import Loader from "../components/Loader"
+import ProgressiveBar from "../components/ProgressiveBar"
 
 
 function Book (){
@@ -31,6 +32,7 @@ const id = useParams()
                                     <div className="book-details-text">
                                         <h3>{loadedBook.book.title}</h3>
                                         <h4>{loadedBook.book.author}</h4>
+                                        <ProgressiveBar bookVal = {loadedBook.book.valutation}/>
                                         <p> {loadedBook.book.description}</p>
                                     {/* <NavLink to=''> Acquista </NavLink> */}
                                     </div>

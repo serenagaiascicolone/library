@@ -1,6 +1,6 @@
 import { useNavigate, useLocation, Await,useRouteLoaderData } from 'react-router-dom'
 import { Suspense } from 'react'
-
+import ProgressiveBar from '../components/ProgressiveBar'
 import {BsArrowRightShort} from 'react-icons/bs'
 import Loader from '../components/Loader'
 import DeleteButton from '../components/DeleteButton'
@@ -21,11 +21,13 @@ function BooksList ({loadedBooks}) {
                         return (
     
                             <article className="book-container">
+
                                 <img src={require("../img/book.png")} alt="" />
                                 <div className="book-container-text">
                                     <h3>{book.title}</h3>
                                     <h4>{book.author}</h4>
                                 </div>
+                                    <ProgressiveBar bookVal={book.valutation}/>
                                     <button onClick={()=> navigate(`/books/${book.id}`)}>Scopri di più<BsArrowRightShort className='book-button-arrow'/></button>
                                
                                

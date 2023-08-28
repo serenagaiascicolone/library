@@ -23,8 +23,10 @@ const findBook = books.books.filter(book => book.id.includes(params.id))
                             <input type="file" name="image" id="" />
                             <label htmlFor="title"> Titolo </label>
                             <input type="text" name="title" defaultValue={findBook[0].title}/>
-                            <label htmlFor="author"  defaultValue={findBook[0].author}> Autore </label>
+                            <label htmlFor="author"> Autore </label>
                             <input type="text" name="author" defaultValue={findBook[0].author}/>
+                            <label htmlFor="valutation"> Voto 1/5 </label>
+                            <input type="number" name="valutation" id="" min="0" max="5" defaultValue={findBook[0].valutation}/>
                             <label htmlFor="description"> Descrizione </label>
                             <textarea name="description" id="" cols="30" rows="10"  defaultValue={findBook[0].description}></textarea>
                             <button onClick={() => navigate('/books')}>Annulla</button>
@@ -45,6 +47,7 @@ export async function action ({request, params}) {
     const editBook = {
         title: data.get('title'),
         author: data.get('author'),
+        valutation: data.get('valutation'),
         description: data.get('description')
     }
 
