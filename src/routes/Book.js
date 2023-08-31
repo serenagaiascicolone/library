@@ -63,6 +63,7 @@ async function  getBook ({id}) {
 }
 
 export async function loader ({params}) {
+    console.log(params)
     return defer (
         {
             book: getBook(params)

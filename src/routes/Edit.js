@@ -30,7 +30,7 @@ const findBook = books.books.filter(book => book.id.includes(params.id))
                             <label htmlFor="description"> Descrizione </label>
                             <textarea name="description" id="" cols="30" rows="10"  defaultValue={findBook[0].description}></textarea>
                             <button onClick={() => navigate('/books')}>Annulla</button>
-                            <button> Modifica </button>
+                            <button> Salva </button>
                         </Form>
             </div>
 

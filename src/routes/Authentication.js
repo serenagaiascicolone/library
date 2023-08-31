@@ -1,4 +1,5 @@
-import { Form, redirect, useNavigation, useLocation, useActionData } from "react-router-dom"
+import { Form, redirect, useNavigation, useLocation, useActionData, useParams } from "react-router-dom"
+
 
 
 function Authentication (){
@@ -7,8 +8,8 @@ function Authentication (){
     const location = useLocation()
     const page = location.pathname
     const serverResponseData = useActionData()
-    console.log(serverResponseData)
-    
+ 
+
     return (
         <div className={page === '/login' ? "auth-container bg-login" : "auth-container bg-signup"}>
         <h1>{page === '/login' ? 'Login' : 'Registrati'}</h1>
@@ -56,28 +57,33 @@ function Authentication (){
     )
 }
 
-export async function action ({request}, page) {
-    console.log(page)
-    
+ 
+
+export async function action ({request}) {
+    const page = window.location.pathname
+
     const data = await request.formData()
     const userData = {
         email: data.get('email'),
         password: data.get('password'),
     }
     
-    if(page === 'login') {
+    if(page === '/login') {
         const response = await fetch('http://localhost:4000/api/login', {
             method: 'POST',
             body: JSON.stringify(userData),
             headers: {
                 'Content-Type': 'application/json'
             }
-    
             
             
         })
         
         if(response.status === 401){
+            return response 
+        }
+
+        if(response.status === 422){
             return response 
         }
 
@@ -94,7 +100,7 @@ export async function action ({request}, page) {
    
     }
 
-    if(page === 'signup') {
+    if(page === '/signup') {
         
         const response = await fetch('http://localhost:4000/api/signup', {
             method: 'POST',

@@ -1,3 +1,4 @@
+
 import {BsArrowLeftCircle} from 'react-icons/bs'
 import {BsArrowRightCircle} from 'react-icons/bs'
 import { Await , useNavigate} from 'react-router-dom'
@@ -44,11 +45,13 @@ const navigate = useNavigate()
 
 
    /* MEDIA QUERIES */
-   const [matches, setMatches] = useState(window.matchMedia("(min-width: 768px)"))
+   const [matches, setMatches] = useState()
+ 
    useEffect(() => {
     window
     .matchMedia("(min-width: 768px)")
     .addEventListener('change', e => setMatches(e.matches))
+
    })
   
 

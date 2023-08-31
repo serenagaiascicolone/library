@@ -1,12 +1,3 @@
-// MOCK
-import MockHome from './mock/MockHome'
-import MockNotFound from './mock/MockNotFound';
-import MockBooks from './mock/MockBooks';
-import MockBook from './mock/MockBook';
-import MockLogin from './mock/MockLogin';
-import MockSignup from './mock/MockSignup';
-import MockAddBook from './mock/MockAddBook';
-import MockEdit from './mock/MockEdit';
 
 import './App.css';
 import {RouterProvider, createBrowserRouter} from 'react-router-dom'
@@ -15,15 +6,15 @@ import Home from './routes/Home'
 import NotFound from './routes/NotFound';
 import Books, { loader as BooksLoader, getBooks as getBooksLoader } from './routes/Books';
 import Book, {loader as BookLoader} from './routes/Book';
-import {action as LoginAction} from './components/Login';
+
 import AddBook, {action as AddBookAction} from './routes/AddBook';
-import Edit, {action as EditBookAction} from './components/Edit';
+import Edit, {action as EditBookAction} from './routes/Edit';
 import Error from './components/Error'
 import {action as DeleteAction} from './components/DeleteButton';
 import  {action as LogoutAction} from './components/Logout';
 import { getUserToken as tokenLoader } from './utilities/authentication';
-import Authentication from './routes/Authentication';
-import {action as SignupAction} from './components/Signup'
+import Authentication, {action as AuthAction} from './routes/Authentication';
+
 
 
 
@@ -43,8 +34,9 @@ const router = createBrowserRouter ([
       },
       {
         path: 'login',
-        action: LoginAction, 
+        action: AuthAction, 
         element: <Authentication />,
+        // element: <MockAuth />,
       },
       {
         path: 'logout',
@@ -52,7 +44,7 @@ const router = createBrowserRouter ([
       },
       {
         path: 'signup',
-        action: SignupAction,
+        action: AuthAction,
         element: < Authentication />,
       },
       {
